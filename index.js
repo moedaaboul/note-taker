@@ -2,6 +2,9 @@
 const express = require('express');
 const app = express();
 
+// static assets sourced from ./public folder
+app.use(express.static('./public'));
+app.use(express.urlencoded({ extended: false }));
 // parse json
 app.use(express.json());
 
