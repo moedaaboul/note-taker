@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // Main route
-app.use('/api/v1/notes', notes);
+app.use('/api/notes', notes);
 
 // notes route
 app.get('/notes', (req, res) =>

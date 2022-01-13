@@ -1,5 +1,7 @@
-const getAllNotes = async (req, res) => {
-  res.status(200).json('successful');
+const noteData = require('../db/db.json');
+
+const getAllNotes = (req, res) => {
+  res.status(200).json(noteData);
 };
 
 const createNote = async (req, res) => {
