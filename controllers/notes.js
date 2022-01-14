@@ -12,7 +12,7 @@ const createNote = async (req, res) => {
     const newNote = {
       title,
       text,
-      note_id: 'id',
+      id: 2,
     };
     noteData.push(newNote);
     fs.writeFile(
@@ -35,6 +35,20 @@ const createNote = async (req, res) => {
 };
 
 const deleteNote = async (req, res) => {
+  const { id: id } = req.params;
+  const noteID = +id;
+  let filteredData = noteData.filter((e) => e.id !== noteID);
+  fs.writeFile(
+    path.join(__dirname, '../db/db.json'),
+    JSON.stringify(filteredData),
+    (err) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log(`Note with id ${noteID} has been deleted from JSON file`);
+      }
+    }
+  );
   res.status(200).send();
 };
 
