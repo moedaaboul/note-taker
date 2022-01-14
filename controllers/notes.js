@@ -1,6 +1,7 @@
 const noteData = require('../db/db.json');
 const fs = require('fs');
 const path = require('path');
+const { v4: uuidv4 } = require('uuid');
 
 const getAllNotes = (req, res) => {
   res.status(200).json(noteData);
@@ -12,7 +13,7 @@ const createNote = async (req, res) => {
     const newNote = {
       title,
       text,
-      id: 2,
+      id: uuidv4(),
     };
     noteData.push(newNote);
     fs.writeFile(
@@ -35,8 +36,7 @@ const createNote = async (req, res) => {
 };
 
 const deleteNote = async (req, res) => {
-  const { id: id } = req.params;
-  const noteID = +id;
+  const { id: noteID } = req.params;
   let filteredData = noteData.filter((e) => e.id !== noteID);
   fs.writeFile(
     path.join(__dirname, '../db/db.json'),
