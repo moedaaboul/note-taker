@@ -7,7 +7,7 @@ const getAllNotes = (req, res) => {
   res.status(200).json(noteData);
 };
 
-const createNote = async (req, res) => {
+const createNote = (req, res) => {
   const { title, text } = req.body;
   if (title && text) {
     const newNote = {
@@ -35,7 +35,7 @@ const createNote = async (req, res) => {
   }
 };
 
-const deleteNote = async (req, res) => {
+const deleteNote = (req, res) => {
   const { id: noteID } = req.params;
   let filteredData = noteData.filter((e) => e.id !== noteID);
   fs.writeFile(
