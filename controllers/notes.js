@@ -2,9 +2,10 @@ const noteData = require('../db/db.json');
 const fs = require('fs');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
+const { StatusCodes } = require('http-status-codes');
 
 const getAllNotes = (req, res) => {
-  res.status(200).json(noteData);
+  res.status(StatusCodes.OK).json(noteData);
 };
 
 const createNote = (req, res) => {
@@ -29,9 +30,11 @@ const createNote = (req, res) => {
         }
       }
     );
-    res.status(201).json('created');
+    res.status(StatusCodes.CREATED).json('created');
   } else {
-    res.status(500).json('Error in posting review');
+    res
+      .status(StatusCodes.INTERNAL_SERVER_ERROR)
+      .json('Error in posting review');
   }
 };
 
@@ -49,7 +52,7 @@ const deleteNote = (req, res) => {
       }
     }
   );
-  res.status(200).send();
+  res.status(StatusCodes.OK).send();
 };
 
 module.exports = {
