@@ -1,35 +1,17 @@
-// load express and initialise server
 const express = require('express');
-const app = express();
-const notes = require('./routes/notes');
 const path = require('path');
 
-// static assets sourced from ./public folder
-app.use(express.static('./public'));
-app.use(express.urlencoded({ extended: false }));
-// parse json
+const routes = require('./routes');
+
+const PORT = process.env.PORT || 3000;
+
+const app = express();
+
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, './public')));
+app.use(routes);
 
-// Main route
-app.use('/api/notes', notes);
-
-// notes route
-app.get('/notes', (req, res) =>
-  res.sendFile(path.join(__dirname, 'public/notes.html'))
-);
-
-app.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, 'public/index.html'))
-);
-
-const port = process.env.PORT || 3000;
-
-const start = async () => {
-  try {
-    app.listen(port, console.log(`Server is listening on port ${port}....`));
-  } catch (error) {}
-};
-
-start();
+app.listen(PORT, console.log(`Server is listening on port ${PORT}....`));
 
 module.exports = app;
