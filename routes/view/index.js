@@ -1,13 +1,10 @@
 const { Router } = require('express');
-const router = Router();
-const path = require('path');
-// notes route
-router.get('/notes', (req, res) =>
-  res.sendFile(path.join(__dirname, '../../public/notes.html'))
-);
 
-router.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, '../../public/index.html'))
-);
+const { renderHome, renderNotes } = require('../../controllers/view');
+
+const router = Router();
+
+router.get('/notes', renderNotes);
+router.get('*', renderHome);
 
 module.exports = router;
