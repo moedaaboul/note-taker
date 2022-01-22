@@ -3,6 +3,9 @@ const fs = require('fs');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const { StatusCodes } = require('http-status-codes');
+const writeToFile = require('../helpers');
+
+const filePath = path.join(__dirname, '../db/db.json');
 
 const getAllNotes = (req, res) => {
   res.status(StatusCodes.OK).json(noteData);
@@ -17,19 +20,7 @@ const createNote = (req, res) => {
       id: uuidv4(),
     };
     noteData.push(newNote);
-    fs.writeFile(
-      path.join(__dirname, '../db/db.json'),
-      JSON.stringify(noteData),
-      (err) => {
-        if (err) {
-          console.error(err);
-        } else {
-          console.log(
-            `New note titled ${newNote.title} has been written to JSON file`
-          );
-        }
-      }
-    );
+    writeToFile(filePath, noteData);
     res.status(StatusCodes.CREATED).json('created');
   } else {
     res
@@ -41,17 +32,7 @@ const createNote = (req, res) => {
 const deleteNote = (req, res) => {
   const { id: noteID } = req.params;
   noteData = noteData.filter((e) => e.id !== noteID);
-  fs.writeFile(
-    path.join(__dirname, '../db/db.json'),
-    JSON.stringify(noteData),
-    (err) => {
-      if (err) {
-        console.error(err);
-      } else {
-        console.log(`Note with id ${noteID} has been deleted from JSON file`);
-      }
-    }
-  );
+  writeToFile(filePath, noteData);
   res.status(StatusCodes.OK).send();
 };
 
