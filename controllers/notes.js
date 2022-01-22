@@ -1,4 +1,4 @@
-const noteData = require('../db/db.json');
+let noteData = require('../db/db.json');
 const fs = require('fs');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
@@ -40,10 +40,10 @@ const createNote = (req, res) => {
 
 const deleteNote = (req, res) => {
   const { id: noteID } = req.params;
-  let filteredData = noteData.filter((e) => e.id !== noteID);
+  noteData = noteData.filter((e) => e.id !== noteID);
   fs.writeFile(
     path.join(__dirname, '../db/db.json'),
-    JSON.stringify(filteredData),
+    JSON.stringify(noteData),
     (err) => {
       if (err) {
         console.error(err);
