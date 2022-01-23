@@ -38,7 +38,7 @@ The application will be invoked by using the following command:
 
 ```md
 .
-├── **github\workflows**/
+├── **.github**/
 ├── assets/
 ├── controllers/
 ├── db/
