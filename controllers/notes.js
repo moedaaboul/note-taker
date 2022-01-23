@@ -31,7 +31,7 @@ const deleteNote = (req, res) => {
   if (noteID) {
     noteData = noteData.filter((e) => e.id !== noteID);
     writeToFile(filePath, noteData);
-    res.status(StatusCodes.OK).send();
+    res.status(StatusCodes.CREATED).send();
   } else {
     res.status(StatusCodes.INTERNAL_SERVER_ERROR).json('Error in deleting');
   }
