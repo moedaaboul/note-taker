@@ -64,7 +64,7 @@ The application will be invoked by using the following command:
 
 ## Tests
 
-Routes can be tested via Postman or Insomnia. Seperate SuperTests have been added to the _tests_ folder to test both GET and POST routes and could be run via the terminal using:
+Routes can be tested via Postman or Insomnia. Seperate SuperTests have been added to the **tests** folder to test both GET and POST routes and could be run via the terminal using:
 
     npm run test
 
@@ -72,7 +72,7 @@ Additional testing scripts for the DELETE route could be added as an improvement
 
 ## Features
 
-An automated github actions feature has been added to run the tests above with every git push action.
+An automated _github actions_ feature has been added to run the tests above with every git push action.
 
 ## Appearance
 
