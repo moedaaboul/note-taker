@@ -6,7 +6,7 @@
 
 This application uses an Express.js back end, saves and retrieves note data from a JSON file.
 
-The application’s front end was already created. Task was to build the back end, and connect it with the front end, and then deploy the entire application to Heroku.
+The application’s front end was already created. Task was to build the back end, connect it with the front end, and then deploy the entire application to Heroku.
 
 ## Table of Contents
 
