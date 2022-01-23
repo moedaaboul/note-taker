@@ -1,7 +1,7 @@
 const app = require('./index.js');
 const request = require('supertest');
 
-describe('GET /notes', function () {
+describe('GET /api/notes', function () {
   it('respond with json containing a list of all notes', function (done) {
     request(app)
       .get('/api/notes')
@@ -11,13 +11,27 @@ describe('GET /notes', function () {
   });
 });
 
-// describe('GET *', function () {
-//   it('respond with json containing a list of all notes', function (done) {
-//     request(app).get('/').expect('Content-Type', 'text/html').end(done);
-//   });
-// });
+describe('GET /notes', function () {
+  it('respond with json containing a list of all notes', function (done) {
+    request(app)
+      .get('/notes')
+      .set('Accept', 'application/json')
+      .expect('Content-Type', 'text/html; charset=UTF-8')
+      .expect(200, done);
+  });
+});
 
-describe('POST /users', function () {
+describe('GET *', function () {
+  it('respond with json containing a list of all notes', function (done) {
+    request(app)
+      .get('/dummy')
+      .set('Accept', 'application/json')
+      .expect('Content-Type', 'text/html; charset=UTF-8')
+      .expect(200, done);
+  });
+});
+
+describe('POST /api/notes', function () {
   let data = {
     title: 'This is a dummy title',
     text: 'This is a dummy text',
@@ -36,7 +50,7 @@ describe('POST /users', function () {
   });
 });
 
-describe('POST /users', function () {
+describe('POST /api/notes', function () {
   let data = {
     title: 'This is a dummy title',
     dummy: 'This is a dummy text',
@@ -55,7 +69,7 @@ describe('POST /users', function () {
   });
 });
 
-describe('POST /users', function () {
+describe('POST /api/notes', function () {
   let data = {
     dummy: 'This is a dummy title',
     text: 'This is a dummy text',

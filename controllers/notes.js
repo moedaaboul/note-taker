@@ -22,17 +22,19 @@ const createNote = (req, res) => {
     writeToFile(filePath, noteData);
     res.status(StatusCodes.CREATED).json('created');
   } else {
-    res
-      .status(StatusCodes.INTERNAL_SERVER_ERROR)
-      .json('Error in posting review');
+    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json('Error in posting note');
   }
 };
 
 const deleteNote = (req, res) => {
   const { id: noteID } = req.params;
-  noteData = noteData.filter((e) => e.id !== noteID);
-  writeToFile(filePath, noteData);
-  res.status(StatusCodes.OK).send();
+  if (noteID) {
+    noteData = noteData.filter((e) => e.id !== noteID);
+    writeToFile(filePath, noteData);
+    res.status(StatusCodes.OK).send();
+  } else {
+    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json('Error in deleting');
+  }
 };
 
 module.exports = {
