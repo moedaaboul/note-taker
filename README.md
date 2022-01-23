@@ -63,9 +63,13 @@ The application will be invoked by using the following command:
 
 ## Tests
 
-Run test using:
+Routes can be tested via Postman or Insomnia. A simple route test has been added and has been run via github actions.
+
+You may run this test via the terminal using:
 
     npm run test
+
+Additional automated testing scripts could be added as an improvement.
 
 ## Features
 
