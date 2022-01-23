@@ -2,7 +2,7 @@ const app = require('./index.js');
 const request = require('supertest');
 
 describe('GET /api/notes', function () {
-  it('respond with json containing a list of all notes', function (done) {
+  it('return JSON content with list of all notes with OK STATUS upon calling GET /api/notes', function (done) {
     request(app)
       .get('/api/notes')
       .set('Accept', 'application/json')
@@ -12,7 +12,7 @@ describe('GET /api/notes', function () {
 });
 
 describe('GET /notes', function () {
-  it('respond with json containing a list of all notes', function (done) {
+  it('return JSON content with list of all notes with OK STATUS upon calling GET /notes', function (done) {
     request(app)
       .get('/notes')
       .set('Accept', 'application/json')
@@ -22,7 +22,7 @@ describe('GET /notes', function () {
 });
 
 describe('GET *', function () {
-  it('respond with json containing a list of all notes', function (done) {
+  it('return HTML with OK STATUS upon calling any wildcard GET *', function (done) {
     request(app)
       .get('/dummy')
       .set('Accept', 'application/json')
@@ -36,7 +36,7 @@ describe('POST /api/notes', function () {
     title: 'This is a dummy title',
     text: 'This is a dummy text',
   };
-  it('respond with 201 created', function (done) {
+  it('respond with 201 CREATED STATUS upon posting data with both "title" and "text" fields under POST /api/notes', function (done) {
     request(app)
       .post('/api/notes')
       .send(data)
@@ -55,7 +55,7 @@ describe('POST /api/notes', function () {
     title: 'This is a dummy title',
     dummy: 'This is a dummy text',
   };
-  it('respond with 500 INTERNAL SERVER ERROR when "text" field is missing', function (done) {
+  it('respond with 500 INTERNAL SERVER ERROR when "text" field is missing under POST /api/notes', function (done) {
     request(app)
       .post('/api/notes')
       .send(data)
@@ -74,7 +74,7 @@ describe('POST /api/notes', function () {
     dummy: 'This is a dummy title',
     text: 'This is a dummy text',
   };
-  it('respond with 500 INTERNAL SERVER ERROR when "title" field is missing', function (done) {
+  it('respond with 500 INTERNAL SERVER ERROR when "title" field is missing under POST /api/notes', function (done) {
     request(app)
       .post('/api/notes')
       .send(data)
