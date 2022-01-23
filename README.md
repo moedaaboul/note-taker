@@ -19,7 +19,6 @@ The application’s front end was already created. Task was to build the back en
 - [Features](#features)
 - [Appearance](#appearance)
 - [Setup](#setup)
-- [Demo](#demo)
 - [Questions](#questions)
 - [License](#license)
 
@@ -33,7 +32,7 @@ The application’s front end was already created. Task was to build the back en
 
 The application will be invoked by using the following command:
 
-    npm start
+    npm run watch
 
 ## Directory Structure
 
@@ -81,10 +80,6 @@ Run test using:
 - Text editor (VS Code recommended)
 - An Internet browser (Google Chrome recommended)
 - Nodejs must be installed
-
-## Demo
-
-[![Watch the video](./assets/my-video-player.png)](https://drive.google.com/file/d/1KAaGDYgHObkcrLzAKw4rKIMEY04-3JRm/view)
 
 ## Questions
 
