@@ -19,6 +19,7 @@ The application’s front end was already created. Task was to build the back en
 - [Features](#features)
 - [Appearance](#appearance)
 - [Setup](#setup)
+- [Acknowledgements](#acknowledgements)
 - [Questions](#questions)
 - [License](#license)
 
@@ -83,6 +84,14 @@ An automated _github actions_ feature has been added to run the tests above with
 - Text editor (VS Code recommended)
 - An Internet browser (Google Chrome recommended)
 - Nodejs must be installed
+
+## Acknowledgements
+
+- https://www.npmjs.com/package/uuid
+- https://www.npmjs.com/package/express
+- https://www.npmjs.com/package/nodemon
+- https://www.npmjs.com/package/supertest
+- https://www.npmjs.com/package/http-status-codes
 
 ## Questions
 
