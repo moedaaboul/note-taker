@@ -56,16 +56,10 @@ The application will be invoked by using the following command:
 - Express framework
 - Heroku
 - JavaScript
-- HTML
-- CSS
-- Bootstrap CSS framework
-- Font Awesome
 
 ## Tests
 
-Routes can be tested via Postman or Insomnia. A simple route test has been added and has been run via github actions.
-
-You may run this test via the terminal using:
+Routes can be tested via Postman or Insomnia. A simple route test has been added and could be run via the terminal using:
 
     npm run test
 
@@ -73,7 +67,7 @@ Additional automated testing scripts could be added as an improvement.
 
 ## Features
 
-- A simple automated route test has been added and run via github actions.
+App includes an additional feature where tests are run via github actions with every git push.
 
 ## Appearance
 
