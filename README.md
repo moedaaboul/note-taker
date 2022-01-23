@@ -38,13 +38,18 @@ The application will be invoked by using the following command:
 
 ```md
 .
-├── **.github**/
+├── **_tests_**/
+├── .github/workflows
 ├── assets/
 ├── controllers/
+│ ├── notes.js
+│ └── view.js
 ├── db/
 ├── helpers/
 ├── public/
 ├── routes/
+│ ├── api/
+│ └── view/
 ├── .gitignore
 ├── index.js
 └── package.json
@@ -59,15 +64,15 @@ The application will be invoked by using the following command:
 
 ## Tests
 
-Routes can be tested via Postman or Insomnia. A simple route test has been added and could be run via the terminal using:
+Routes can be tested via Postman or Insomnia. Seperate SuperTests have been added to the _tests_ folder to test both GET and POST routes and could be run via the terminal using:
 
     npm run test
 
-Additional automated testing scripts could be added as an improvement.
+Additional testing scripts for the DELETE route could be added as an improvement.
 
 ## Features
 
-App includes an additional feature where tests are run via github actions with every git push.
+An automated github actions feature has been added to run the tests above with every git push action.
 
 ## Appearance
 
