@@ -74,7 +74,7 @@ Run test using:
 
 ## Appearance
 
-![My team profile](./assets/appearance.png)
+![My Node.js note taker app](./assets/appearance.png)
 
 ## Setup
 
